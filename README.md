@@ -38,7 +38,7 @@ Here is a static image of what the script would output.
 - Two more blue lines show the perpendiculars of the lines on the curve. 
 - The blue circle is the predicted center based on the intersect of the perpendicular lines.
 - The red dot is the center of the mask, or rifle scope. This is used in calculating the distance from the center of the scope to the predicted circle center. 
-[Final Static Image][3]
+![Final Static Image][3]
 
 Here is a video of the final result
 
