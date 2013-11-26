@@ -44,7 +44,7 @@ Here is a static image of what the script would output.
 Here is a video of the final result (click to go to youtube.com)
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Ou_MzYFBXx0
-" target="_blank"><img src="http://img.youtube.com/vi/YOu_MzYFBXx0/0.jpg" 
+" target="_blank"><img src="https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/hardware.JPG?raw=true" 
 alt="Rifle for the Blind" width="240" height="180" border="10" /></a>
 
 Environment Constraints
