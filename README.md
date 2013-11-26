@@ -1,11 +1,11 @@
 Navigation
 ============
-- [Overview](#files)
-- [How it Works](#files)
-	- [Scenario](#files)
-	- [Final Results](#files)
-	- [Environment Constraints](#files)
-	- [Step By Step Tutorial](#files)
+- [Overview](#overview)
+- [How it Works](#how-it-works)
+	- [Scenario](#scenario)
+	- [Final Results](#final-result)
+	- [Environment Constraints](#environment-constraints)
+	- [Step By Step Tutorial](#step-by-step-tutorial)
 - [Files](#files)
 
 Overview
@@ -42,6 +42,10 @@ Here is a static image of what the script would output.
 - The **red dot** is the center of the mask, or rifle scope. This is used in calculating the distance from the center of the scope to the predicted circle center. 
 
 Here is a video of the final result (click to go to youtube.com)
+
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=Ou_MzYFBXx0
+" target="_blank"><img src="http://img.youtube.com/vi/YOu_MzYFBXx0/0.jpg" 
+alt="Rifle for the Blind" width="240" height="180" border="10" /></a>
 
 Environment Constraints
 -----------
