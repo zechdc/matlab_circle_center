@@ -69,6 +69,12 @@ First we need to generate an image mask that can be applied to all future images
 - One mask that has been eroded slight more than the 'outer' mask. This is applied to a picture of edges to cut off the outside edge. Hopefully this will make sense later. 
 ![Inner Mask](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/innerMask.JPG?raw=true)
 
+### 2) Convert to Binary
+The we convert the image we are going to process to binary. This happens in the findCenters.m script.
+
+Our output would look something like this:
+![Binary Image](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/innerMask.JPG?raw=true)
+
 Files
 ====================
 Instructions on how to use each file have been included at the top of each file.
