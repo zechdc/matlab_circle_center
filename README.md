@@ -70,10 +70,82 @@ First we need to generate an image mask that can be applied to all future images
 ![Inner Mask](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/innerMask.JPG?raw=true)
 
 ### 2) Convert to Binary
-The we convert the image we are going to process to binary. This happens in the findCenters.m script.
+Then we convert the image we are going to process to binary. This happens in the findCenters.m script.
 
 Our output would look something like this:
-![Binary Image](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/innerMask.JPG?raw=true)
+![Binary Image](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/imgToBinary.JPG?raw=true)
+
+### 3) Apply Mask and Invert
+Then we apply the 'outer' mask that we generated in step 1 to the image we are going to process with this code:
+
+    % apply the mask
+    img(mask.outer==0) = 1;
+
+This sets all 0s found in the outer mask to 1s. It does this to the 'img' variable, which is the binary image we created in step 2. This means that every zero found in the mask image will be set to 1 in the image to process. 
+
+After that we invert the image with this code, changing all 0s to 1s and 1s to 0s
+    
+    img=1-img;
+
+The output should look like this:
+![Mask Applied](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/object.JPG?raw=true)
+
+### 4) Find edges
+Then we find the edges with this code:
+
+    img = edge(img);
+
+It should output this:
+![Edge Found](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/oneline.JPG?raw=true)
+
+### 5) Remove Edge Against Mask Edge
+The next step is used to break this solid line into two separate curves. This is where our 'inner' mask comes into play. 
+
+5.1) First we set every pixel to a value other than 1 or 0 so we don't loose the line we currently have while we are applying another mask. 
+
+    img = 10-img;
+
+5.2) Then we apply the 'inner' mask to our new image
+
+    img(mask.inner==0) = 0;
+
+5.3) Then we convert all the 10s created in step 5.1 back to 0s
+
+    img(img==10) = 0;
+
+The output should look like this:
+![Lines Found](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/lines.JPG?raw=true)
+
+
+### 6) Apply Labels
+We apply a label to our newly found lines so we know the difference between them.
+    
+    label = bwlabel(img);
+
+### 7) Detect Point On Line
+We use this code in a loop, which can be see in the 'findCenters.m' file around line 80:
+
+    %create lines array that stores every point on each line detected
+    [y, x] = find(label==obj);
+    lines(obj).points = [x, y];
+
+### 8) Select Three Points
+Select three points on each line and plug them into the 'getLineProperties.m' function provided in this script. 
+
+See lines 80 - 96 of 'findCenters.m' file for an example of how to select three points on the line.
+
+After getting the line properties you can plot them to get this:
+![Lines Plotted](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/Capture.JPG?raw=true)
+
+### 9) Finished
+I tried to comment the code very well, for more information about how it works open up the scripts and read through them.
+
+If you plot these lines on your image being processed you will get:
+![Final](https://github.com/zechdc/matlab_circle_center/blob/master/stepsExample/final.JPG?raw=true)
+
+
+
+
 
 Files
 ====================
